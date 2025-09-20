@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant</title>
+    <style>
+        html {
+    scroll-behavior: smooth;
+}
+        body {
+            margin-right: 20px;
+            padding-right: 20px;
+            background:black;
+            margin-bottom: 30px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: cursive;
+        }
+        
+        nav {
+            text-decoration: white;
+            font-size: 45px;
+            display: flex;
+            justify-content: flex-end;
+            backdrop-filter: 15px;
+            border-radius: 8px;
+        }
+
+        
+        h1 {
+            text-align: center;
+            font-size: 80px;
+            margin-bottom: 5px;
+            text-decoration: underline;
+            color: rgb(57, 125, 45);
+        }
+        h6{
+            color: aliceblue;
+            text-decoration: none;
+        }
+
+        #center {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .card {
+            
+            border-radius: 50px;
+            border: 2px solid;
+            height: 500px;
+            width: 800px;
+            box-shadow: 8px 8px 8px rgba(250, 91, 91, 0.5);
+            transition: all 0.5s ease-in-out;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            font-size: x-large;
+            text-decoration: overline;
+            color: #030303;
+           
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 10px 10px 55px rgba(0, 0, 0, 0.3);
+            
+        }
+        #card6 {
+            background-image: url("mac.jpg");
+
+            
+        }
+
+        #card2 {
+            background-image: url("dom.jpg");
+        }
+
+        #card3 {
+            background-image: url("wow.jpg");
+        }
+
+        #card4 {
+            background-image: url("amul.jpg");
+        }
+
+        #card5 {
+            background-image: url("bbq.jpg");
+        }
+        #card1 {
+            background-image: url("starbucks.jpg");
+        }
+        #card7 {
+            background-image: url("subway.jpg");
+        }
+
+        img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 1024px) {
+            #center {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 80vw;
+                height: auto;
+                font-size: 1.5rem;
+            }
+
+            h1 {
+                font-size: 5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            a {
+                font-size: 1.5rem;
+                padding: 0 10px;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .card {
+                width: 90vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            a {
+                font-size: 1.2rem;
+                padding: 0 5px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .card {
+                width: 100vw;
+            }
+        }
+       
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+
+.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Keyframes for fade out */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+.text{
+    color: rgb(11, 11, 11);
+    text-shadow: 12px 22px 14px #fc466b;
+    
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><h6>Home</h6></a>&nbsp;&nbsp;&nbsp;
+        </nav>
+    </header>
+    
+
+    <h1><b>Restaurant</b></h1>
+    <div id="center">
+        <div id="card6" class="card">
+            <a href="mcd.html" class="card">
+            <div class='text'>
+            McDonald</div></div></a>
+        <div id="card2" class="card">
+            <a href="Dom.html" class="card">DOMINO'S PIZZA</div></a>
+        <div id="card3" class="card">
+            <a href="wow.html" class="card">WOW MOMO</div></a>
+        <div id="card4" class="card">
+            <a href="amul.html" class="card">AMUL ICE CREAM</div></a>
+        <div id="card5" class="card">
+            <a href="bbq.html" class="card" >BARBEQUE NATION</div></a>
+        <div id="card1" class="card">
+            <a href="star.html" class="card" >STARBUCKS</div></a>   
+        <div id="card7" class="card">
+            <a href="sub.html" class="card" >SUBWAYS</div></a>  
+    
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+           
+            document.body.classList.add('fade-in');
+    
+           
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const href = this.getAttribute('href');
+    
+                    
+                    document.body.classList.add('fade-out');
+    
+                   
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 1000); 
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>

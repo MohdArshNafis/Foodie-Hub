@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Your existing CSS styles */
+        body {
+            background-image: url('project.jpg');
+            margin-left: 5px;
+        }
+        nav {
+            background-color: rgb(47, 44, 44);
+            font-size: 45px;
+            display: flex;
+            justify-content: flex-end;
+            backdrop-filter: 15px;
+            border-radius: 8px;
+        }
+        a {
+            text-decoration: none;
+            color: whitesmoke;
+        }
+        input {
+            width: 98vw;
+            height: 50px;
+            border-radius: 8px;
+        }
+        h3 {
+            text-align: center;
+            font-size: 50px;
+            color: rgb(255, 255, 255);
+        }
+        p {
+            font-size: 35px;
+            color: azure;
+        }
+        input::placeholder {
+            font-weight: bold;
+            text-align: center;
+            color: #000000;
+        }
+        .recommendations {
+            background: rgba(24, 20, 20, 0.8);
+            border-radius: 8px;
+            max-width: 400px; 
+            margin: 20px auto;
+            padding: 15px; 
+            display: none;
+        }
+        .recommendation-item {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="sign.html">Sign in</a>&nbsp;&nbsp;&nbsp;
+            <a href="login.html">Log in</a>&nbsp;&nbsp;&nbsp;
+            <a href="exp.html">Explore</a>
+        </nav>
+        <nav2>
+            <a href="menu.html">Menu</a>&nbsp;&nbsp;&nbsp;
+            <a href="rest.html"></a>
+        </nav2>
+        <div class="head">
+            <h3>Eat Anytime, Anywhere</h3>
+            <div class="search">
+                <input type="text" id="searchInput" placeholder="Restaurant or dish" oninput="showRecommendations()">
+                <div class="recommendations" id="recommendations"></div>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        const restaurants = {
+            pizza: [
+                { name: "Hot Sauce Pizza", file: "pizza_place_1.html" },
+                { name: "Pizza Hut", file: "pizza_hut.html" },
+                { name: "Domino's Pizza", file: "dominos_pizza.html" }
+            ],
+            burger: [
+                { name: "Burger Joint 1", file: "burger_joint_1.html" },
+                { name: "Classic Burger Co.", file: "classic_burger_co.html" },
+                { name: "Burger Palace", file: "burger_palace.html" }
+            ],
+            pasta: [
+                { name: "Italian Bistro", file: "italian_bistro.html" },
+                { name: "Pasta House", file: "pasta_house.html" },
+                { name: "Pasta Delight", file: "pasta_delight.html" }
+            ],
+            dosa: [
+                { name: "Dosa Corner", file: "dosa_corner.html" },
+                { name: "South Indian Dosa House", file: "south_indian_dosa_house.html" },
+                { name: "Dosa Delight", file: "dosa_delight.html" }
+            ],
+            vadaPav: [
+                { name: "Mumbai Vada Pav", file: "mumbai_vada_pav.html" },
+                { name: "Vada Pav Express", file: "vada_pav_express.html" },
+                { name: "Spicy Vada Pav Stall", file: "spicy_vada_pav_stall.html" }
+            ]
+        };
+
+        function showRecommendations() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const recommendationsDiv = document.getElementById('recommendations');
+            recommendationsDiv.innerHTML = '';
+
+            if (input.length === 0) {
+                recommendationsDiv.style.display = 'none';
+                return;
+            }
+
+            const filteredRestaurants = Object.values(restaurants).flat().filter(restaurant => 
+                restaurant.name.toLowerCase().includes(input)
+            );
+
+            if (filteredRestaurants.length > 0) {
+                recommendationsDiv.style.display = 'block';
+                filteredRestaurants.forEach(restaurant => {
+                    const div = document.createElement('div');
+                    div.className = 'recommendation-item';
+
+                    const link = document.createElement('a');
+                    link.href = restaurant.file; // Set the file to open
+                    link.textContent = restaurant.name; // Set the restaurant name
+                    link.target = "_blank"; // Optional: open in a new tab
+                    div.appendChild(link);
+                    
+                    recommendationsDiv.appendChild(div);
+                });
+            } else {
+                recommendationsDiv.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

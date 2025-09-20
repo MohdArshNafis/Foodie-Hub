@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starbucks</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin-right: 20px;
+            padding-right: 20px;
+            background-color: black;
+            margin-bottom: 30px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: cursive;
+        }
+
+        #nav {
+            display: flex;
+            justify-content: space-around;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 98vw;
+            height: 65px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px); 
+            opacity: 0.91;
+        }
+
+        a {
+            color: yellow;
+            text-decoration: none;
+            font-size: 2rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            transition: all 0.5s ease-in-out;
+            padding: 0 20px;
+        }
+
+        a:hover {
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 8px;
+        }
+
+        /* Main content */
+        h1 {
+            text-align: center;
+            font-size: 80px;
+            margin-bottom: 5px;
+            text-decoration: underline;
+            color: rgb(45, 8, 167);
+        }
+
+        #center {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .card {
+            border-radius: 50px;
+            border: 2px solid;
+            height: 500px;
+            width: 400px;
+            box-shadow: 8px 8px 8px rgba(250, 91, 91, 0.5);
+            transition: all 0.5s ease-in-out;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #0a0808;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 10px 10px 55px rgba(0, 0, 0, 0.3);
+        }
+
+        #card1 {
+            background-image: url("latte.jpg");
+        }
+
+        #card2 {
+            background-image: url("frap.jpg");
+        }
+
+        #card3 {
+            background-image: url("cro.jpg");
+        }
+
+        #card4 {
+            background-image: url("bagel.jpg");
+        }
+
+        /* Button styles */
+        .add-to-cart {
+            background-color: #1c9524;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px; 
+        }
+
+        .add-to-cart:hover {
+            background-color: #e68a00; 
+        }
+
+        img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 1024px) {
+            #center {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 80vw;
+                height: auto;
+                font-size: 1.5rem;
+            }
+
+            h1 {
+                font-size: 5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            a {
+                font-size: 1.5rem;
+                padding: 0 10px;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .card {
+                width: 90vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            a {
+                font-size: 1.2rem;
+                padding: 0 5px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .card {
+                width: 100vw;
+            }
+        }
+
+        /* Fade-out animation when leaving the page */
+        .fade-out {
+            animation: fadeOut 0.5s forwards;
+        }
+
+        /* Fade-in animation when loading the page */
+        .fade-in {
+            animation: fadeIn 0.5s forwards;
+        }
+
+        /* Keyframes for fade in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Keyframes for fade out */
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>MENU</h1>
+    <div id="center">
+        <div id="card1" class="card">
+            
+        </div>
+        <button class="add-to-cart" onclick="window.location.href='order.html'"> Iced Latte
+            <br><h2>Rs. 415</h2><br><br><br>PLACE ORDER</button>
+        
+        <div id="card2" class="card">
+        </div>
+        <button class="add-to-cart" onclick="window.location.href='order.html'"> Frappuccino
+            <br><h2>Rs. 489</h2><br><br><br>PLACE ORDER</button>
+        
+        <div id="card3" class="card">
+        </div>
+        <button class="add-to-cart" onclick="window.location.href='order.html'"> Croissant
+            <br><h2>Rs. 585</h2><br><br><br>PLACE ORDER</button>
+        
+        <div id="card4" class="card">
+        </div>
+        <button class="add-to-cart" onclick="window.location.href='order.html'"> Bagles
+            <br><h2>Rs. 475</h2><br><br><br>PLACE ORDER</button>
+        
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            document.body.classList.add('fade-in');
+    
+            
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const href = this.getAttribute('href');
+    
+                    
+                    document.body.classList.add('fade-out');
+    
+                    
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 1000); 
+                });
+            });
+        });
+    </script>
+</body>
+</html>
